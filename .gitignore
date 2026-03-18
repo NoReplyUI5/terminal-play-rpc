@@ -1,0 +1,15 @@
+# +-+-+-+-+-UNNECESSARY-+-+-+-+-+ #
+
+node_modules
+
+# +-+-+-+-+-TUI-PROJECT-+-+-+-+-+ #
+
+src
+player.js
+control.js
+config.json
+package-lock.json
+.env
+
+# +-+-+-+-+-TUI-PROJECT-+-+-+-+-+ #
+

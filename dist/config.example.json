@@ -1,0 +1,8 @@
+{
+  "discord": {
+    "token": "YOUR_DISCORD_ACCOUNT_TOKEN_HERE"
+  },
+  "rpc": {
+    "enabled": true
+  }
+}
