@@ -19,23 +19,17 @@ This project uses a direct WebSocket gateway connection to update your Discord p
 apt install -y termux-api
 ```
 
-## 🎯 Installation (for Discord RPC)
-
-```bash
-npm install
-```
-
 ## 🎮 Usage
 
 Start the player by passing a file or a folder:
 
 ```bash
-node dist/index.js /path/to/music
+node player.js /path/to/music
 ```
 
 ## ✨ Example
 ```bash
-node dist/index.js audio.m4a
+node player.js audio.m4a
 ```
 
 ### Keybindings
@@ -51,6 +45,11 @@ node dist/index.js audio.m4a
 - `i`: Toggle File Info Panel
 - `p`: Toggle Playlist Panel
 - `q`: Quit
+
+## 🍥 NPM packages (that are being used)
+
+- **ws**: for Discord RPC (Packed inside player.js)
+- **ncc**: to packed entire codebase into 1 file
 
 ## 📋 Requirements (must have)
 
