@@ -15,8 +15,9 @@ This project uses a direct WebSocket gateway connection to update your Discord p
 ## 🍀 Termux User (must install Termux API)
 
 - **[Download](https://github.com/termux/termux-api/releases)**: This allows Termux to create media controls.
+
 ```bash
-apt install -y termux-api
+apt install -y termux-api mpv ffmpeg
 ```
 
 ## 🎮 Usage
@@ -28,6 +29,7 @@ node player.js /path/to/music
 ```
 
 ## ✨ Example
+
 ```bash
 node player.js audio.m4a
 ```
@@ -39,6 +41,7 @@ node player.js audio.m4a
 - `Ctrl` + `←` `→`: Previous / Next track
 - `↑` `↓` / `+` `−`: Volume Control
 - `Ctrl` + `Alt` + `s`: Shuffle playlist/queue
+- `Ctrl` + `l`: Toggle lyrics view
 - `m`: Toggle Mute
 - `r`: Cycle Repeat Mode (none → one → all)
 - `s`: Toggle Shuffle
