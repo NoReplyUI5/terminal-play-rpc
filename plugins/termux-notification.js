@@ -17,7 +17,19 @@ module.exports = {
 
     let notificationDebounceTimer = null;
 
+    let lastTrack = "";
+    let lastState = "";
+
     const updateMediaNotification = (st) => {
+      const currentTrack = st.file || "";
+      const currentState = `${st.paused}-${st.playing}`;
+
+      // Only update if track or play/pause state changed
+      if (currentTrack === lastTrack && currentState === lastState) return;
+
+      lastTrack = currentTrack;
+      lastState = currentState;
+
       if (notificationDebounceTimer) clearTimeout(notificationDebounceTimer);
 
       notificationDebounceTimer = setTimeout(() => {

@@ -5529,10 +5529,7 @@ class DiscordRPC {
     // Fatal Discord codes: 4004 (Auth failure), 4010-4014 (Sharding/Invalid API)
     const fatalCodes = [4004, 4010, 4011, 4012, 4013, 4014];
     const isFatal = fatalCodes.includes(code);
-    this._handleFail(
-      new Error(`Gateway closed with code ${code}`),
-      isFatal,
-    );
+    this._handleFail(new Error(`Gateway closed with code ${code}`), isFatal);
   }
 
   _handleError(e) {
@@ -6086,7 +6083,9 @@ class Player extends EventEmitter {
               this.plugins.set(name, plugin);
             }
           } catch (e) {
-            process.stderr.write(`Failed to load plugin ${file}: ${e.message}\n`);
+            process.stderr.write(
+              `Failed to load plugin ${file}: ${e.message}\n`,
+            );
           }
         }
       }
@@ -6204,7 +6203,6 @@ class Player extends EventEmitter {
     if (idx < 0 || idx >= this.playlist.length) return;
 
     this._loading = true;
-    this._playbackEnded = false;
     this.idx = idx;
     const file = this.playlist[idx];
 
@@ -6479,7 +6477,7 @@ class Player extends EventEmitter {
 
     // Get current playing file
     const currentFile = this.playlist[this.idx];
-    
+
     // Remove current file from playlist to shuffle others
     const otherFiles = this.playlist.filter((_, i) => i !== this.idx);
 
@@ -6822,6 +6820,7 @@ class Renderer {
       n += Math.min(6, st.playlist.length) + 1 + 1;
     }
     if (st.rpcStatus) n += 1;
+    if (st.resourceUsage) n += 1;
     n += 1;
     return n;
   }
@@ -6965,6 +6964,11 @@ class Renderer {
     if (st.rpcStatus) {
       const rpcIcon = st.rpcConnected ? cc(T.bGreen, "🔗") : cc(T.dim, "🔓");
       out.push(` ${rpcIcon} ${cc(T.dim, st.rpcStatus)}`);
+    }
+
+    // Resource Usage
+    if (st.resourceUsage) {
+      out.push(` ${cc(T.dim, T.cyan, "⚡")} ${cc(T.dim, st.resourceUsage)}`);
     }
 
     // Help
